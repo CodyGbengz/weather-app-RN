@@ -1,12 +1,15 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, } from 'react';
+import { StyleSheet, View } from 'react-native';
+import { Loading } from './components/Loading';
+import Weather from './components/Weather'
+import { registerRootComponent } from 'expo';
 
-export default function App() {
+
+const App = () => {
+  const [isLoading, setLoading] = useState(false)
   return (
     <View style={styles.container}>
-      <Text></Text>
-      <StatusBar style="auto" />
+      { isLoading ? <Loading /> : <Weather /> }
     </View>
   );
 }
@@ -14,8 +17,9 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: '#FBDB7C',
     justifyContent: 'center',
   },
 });
+
+export default App;
